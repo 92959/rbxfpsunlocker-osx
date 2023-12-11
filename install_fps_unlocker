@@ -29,7 +29,12 @@ if [ ! -d "$clientSettingsPath" ]; then
 fi
 
 echo "Do you want to use the Vulkan renderer? This will remove the FPS cap completely, but might break Roblox if you use an external monitor. (yes/no): "
-read useVulkan
+if [ -z "$2" ]
+  then
+    read useVulkan
+  else
+    useVulkan=$1
+fi
 
 case $useVulkan in
   yes)
