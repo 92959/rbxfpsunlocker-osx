@@ -50,6 +50,24 @@ case $useVulkan in
     "
     ;;
 
+  y)
+    clientSettings=" \
+    { \
+      \"DFIntTaskSchedulerTargetFps\": $targetFps, \
+      \"FFlagDebugGraphicsDisableMetal\": \"true\", \
+      \"FFlagDebugGraphicsPreferVulkan\": \"true\" \
+    } \
+    "
+    ;;
+
+  n)
+    clientSettings=" \
+    { \
+      \"DFIntTaskSchedulerTargetFps\": $targetFps \
+    } \
+    "
+    ;;
+
   *)
     echo "Unknown option."
     exit 1
