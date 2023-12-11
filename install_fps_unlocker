@@ -4,7 +4,17 @@ if [ -z "$1" ]
   then
     targetFps=10000
   else
-    targetFps=$1
+    if [ "$1" = "y" ]; then
+      useVulkan=$1
+    elif [ "$1" = "yes" ]; then
+      useVulkan=$1
+    elif [ "$1" = "n" ]; then
+      useVulkan=$1
+    elif [ "$1" = "no" ]; then
+      useVulkan=$1
+    else
+      targetFps=$1
+    fi
 fi
 robloxPath=$(find /Applications -name Roblox.app -print -quit 2>/dev/null)
 
@@ -29,11 +39,23 @@ if [ ! -d "$clientSettingsPath" ]; then
 fi
 
 echo "Do you want to use the Vulkan renderer? This will remove the FPS cap completely, but might break Roblox if you use an external monitor. (yes/no): "
-if [ -z "$2" ]
-  then
+if [ -z "$useVulkan" ]; then
+  if [ -z "$2" ]; then
     read useVulkan
   else
-    useVulkan=$1
+    if [ "$1" = "y" ]; then
+      useVulkan=$2
+    elif [ "$1" = "yes" ]; then
+      useVulkan=$2
+    elif [ "$1" = "n" ]; then
+      useVulkan=$2
+    elif [ "$1" = "no" ]; then
+      useVulkan=$2
+    else
+      echo "Unknown option."
+      exit 1
+    fi
+  fi
 fi
 
 case $useVulkan in
