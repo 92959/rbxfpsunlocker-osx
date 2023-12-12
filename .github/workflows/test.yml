@@ -32,9 +32,9 @@ jobs:
 
       - name: Run rbxfpsunlocker
         run: |
-          curl -sfLO https://raw.githubusercontent.com/92959/rbxfpsunlocker-osx/script-patch-1/install_fps_unlocker
+          curl -sfLO https://raw.githubusercontent.com/92959/rbxfpsunlocker-osx/script/install_fps_unlocker
           chmod +x ./install_fps_unlocker
-          bash -c "yes || true" | ./install_fps_unlocker 240
+          yes | ./install_fps_unlocker 240
       
       - name: Verify
         run: cat /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json
