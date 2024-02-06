@@ -28,8 +28,21 @@ if [ ! -d "$clientSettingsPath" ]; then
   mkdir $clientSettingsPath
 fi
 
-echo "Do you want to use the Vulkan renderer? This will remove the FPS cap completely, but might break Roblox if you use an external monitor. (yes/no): "
-read useVulkan
+if [[ -z "$2" ]]; then
+    echo "Do you want to use the Vulkan renderer? This will remove the FPS cap completely, but might break Roblox if you use an external monitor. (yes/no): "
+    read useVulkan
+elif [[ "$2" == "yes" ]]; then
+    useVulkan=yes
+elif [[ "$2" == "no" ]]; then
+    useVulkan=no
+elif [[ "$2" == "y" ]]; then
+    useVulkan=yes
+elif [[ "$2" == "n" ]]; then
+    useVulkan=no
+else
+    echo "Do you want to use the Vulkan renderer? This will remove the FPS cap completely, but might break Roblox if you use an external monitor. (yes/no): "
+    read useVulkan
+fi
 
 case $useVulkan in
   yes)
