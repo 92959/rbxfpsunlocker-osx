@@ -6,6 +6,9 @@ if [ -z "$1" ]
   else
     targetFps=$1
 fi
+
+echo "Selected FPS: $targetFps"
+
 robloxPath=$(find /Applications -name Roblox.app -print -quit 2>/dev/null)
 
 if [ -z "$robloxPath" ]; then
