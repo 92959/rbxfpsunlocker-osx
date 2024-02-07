@@ -28,7 +28,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Test rbxfpsunlocker
         run: |
-          curl -sfLO https://raw.githubusercontent.com/lanylow/rbxfpsunlocker-osx/script/install_fps_unlocker
+          curl -sfLO https://raw.githubusercontent.com/92959/rbxfpsunlocker-osx/script/install_fps_unlocker
           chmod +x ./install_fps_unlocker
           sudo mkdir -p /Applications/Roblox.app/Contents/MacOS/ClientSettings
           ./install_fps_unlocker 144 yes

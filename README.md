@@ -9,7 +9,7 @@ You will need to follow the steps below:
 1. Open a new terminal window and download the script using `curl -sfLO https://raw.githubusercontent.com/lanylow/rbxfpsunlocker-osx/script/install_fps_unlocker`
 2. Make the script executable using `chmod +x ./install_fps_unlocker`
 3. Run the script using `sh install_fps_unlocker` or...
-4. (Optional) Set your custom FPS cap using `./install_fps_unlocker (custom FPS cap number goes here)`
+4. (Optional) Set your custom FPS cap using `./install_fps_unlocker (custom FPS cap number goes here) (Use Vulkan? (yes/no/y/n))`
 
 After executing the script, you should see a confirmation that the unlocker was installed, like this:
 <img width="935" alt="image" src="https://github.com/lanylow/rbxfpsunlocker-osx/assets/31806776/2de65444-82c0-4a79-b387-58cdd3c96d2c">
