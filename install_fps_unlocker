@@ -1,15 +1,11 @@
 #!/bin/bash
 
-echo "Stage 1: FPS"
-
 if [ -z "$1" ]
   then
     targetFps=10000
   else
     targetFps=$1
 fi
-
-echo "Stage 2: Find Roblox"
 
 robloxPath=$(find /Applications -name Roblox.app -print -quit 2>/dev/null)
 
@@ -27,15 +23,11 @@ if [ -z "$robloxPath" ]; then
   fi
 fi
 
-echo "Stage 3: Getting ClientSettings"
-
 clientSettingsPath="$robloxPath/Contents/MacOS/ClientSettings"
 
 if [ ! -d "$clientSettingsPath" ]; then
   mkdir $clientSettingsPath
 fi
-
-echo "Stage 4: Vulkan"
 
 if [[ -z "$2" ]]; then
     echo "Do you want to use the Vulkan renderer? This will remove the FPS cap completely, but might break Roblox if you use an external monitor. (yes/no): "
@@ -77,8 +69,6 @@ case $useVulkan in
     exit 1
     ;;
 esac
-
-echo "Stage 5: Copying ClientSettings"
 
 echo $clientSettings > "$clientSettingsPath/ClientAppSettings.json"
 
