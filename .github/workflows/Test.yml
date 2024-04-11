@@ -31,5 +31,5 @@ jobs:
           curl -sfLO https://raw.githubusercontent.com/92959/rbxfpsunlocker-osx/script/install_fps_unlocker
           chmod +x ./install_fps_unlocker
           mkdir -p /Applications/Roblox.app/Contents/MacOS/ClientSettings
-          yes | ./install_fps_unlocker 144
+          ./install_fps_unlocker 144 yes
           cat /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json
