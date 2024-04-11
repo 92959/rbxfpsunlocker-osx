@@ -16,7 +16,7 @@ After executing the script, you should see a confirmation that the unlocker was 
 
 *Note: You must run the command again when Roblox updates.*
 
-*Note: If you're using macOS Ventura or newer and your display doesn't support more than 60 Hz **you won't see the effect of this program unless you force Roblox to use Vulkan**. Please don't create issues asking about this. A workaround or fix will **NEVER** be made.*
+*Note: If you're using macOS Ventura or newer and your display doesn't support more than 60 Hz **you won't see the effect of this program unless you force Roblox to use Vulkan**. Please don't create issues asking about this.*
 
 ## Credits
  
