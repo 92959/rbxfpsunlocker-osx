@@ -6,9 +6,9 @@ name: Test rbxfpsunlocker
 on:
   # Triggers the workflow on push or pull request events but only for the "script" branch
   push:
-    branches: [ "script" ]
+    branches: [ "testing" ]
   pull_request:
-    branches: [ "script" ]
+    branches: [ "testing" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
