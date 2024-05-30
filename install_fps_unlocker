@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "WARNING: Running this script directly from upstream/the unstable branch can cause issues (possibly even breaking/bricking Roblox, command-line or your system)!"
+
 if [ -z "$1" ]
   then
     targetFps=10000
