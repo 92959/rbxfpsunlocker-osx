@@ -10,16 +10,28 @@ fi
 robloxPath="/Applications/Roblox.app"
 
 if [ -z "$robloxPath" ]; then
-  $robloxPath="/Applications/RobloxPlayer.app"
+  $robloxPath="~/Applications/Roblox.app"
   if [ -z "$robloxPath" ]; then
-    $robloxPath=$(find ~/Applications -name Roblox.app -print -quit 2>/dev/null)
-    if [ -z "$robloxPath" ]; then
-      $robloxPath=$(find ~/Applications -name RobloxPlayer.app -print -quit 2>/dev/null)
-      if [ -z "$robloxPath" ]; then
-         echo "Roblox installation folder couldn't be found."
-         exit
-      fi
-    fi
+    echo "WARNING: Couldn't find Roblox.app using default paths. Are you sure you want to use 'find' as a last resort? (yes/no)"
+    read useFindMethod
+    case $useFindMethod in
+      yes)
+        $robloxPath=$(find /Applications -name Roblox.app -print -quit 2>/dev/null)
+        if [ -z "$robloxPath" ]; then
+          $robloxPath=$(find ~/Applications -name Roblox.app -print -quit 2>/dev/null)
+        fi
+        if [ -z "$robloxPath" ]; then
+          echo "Roblox installation folder couldn't be found."
+          exit
+        fi
+      no)
+        echo "Roblox installation folder couldn't be found."
+        exit
+      *)
+        echo "Unknown option."
+        exit 1
+        ;;
+    esac
   fi
 fi
 
