@@ -24,9 +24,11 @@ if [ -z "$robloxPath" ]; then
             exit 1
           fi
         fi
+        ;;
       no)
         echo "ERROR: Roblox installation folder couldn't be found."
         exit 1
+        ;;
       *)
         echo "Unknown option."
         exit 1
