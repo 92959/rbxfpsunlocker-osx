@@ -31,5 +31,16 @@ jobs:
           curl -sfLO https://raw.githubusercontent.com/92959/rbxfpsunlocker-osx/testing/install_fps_unlocker
           chmod +x ./install_fps_unlocker
           mkdir -p /Applications/Roblox.app/Contents/MacOS/ClientSettings
+          echo "Check 1: ./install_fps_unlocker (fps) (useVulkan)"
           ./install_fps_unlocker 144 yes
           cat /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json
+          rm /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json
+          echo "Check 2: ./install_fps_unlocker (useVulkan)"
+          ./install_fps_unlocker yes
+          cat /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json
+          rm /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json
+          echo "Check 3: ./install_fps_unlocker (useVulkan) (fps)"
+          ./install_fps_unlocker yes 144
+          cat /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json
+          rm /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json
+          echo "Dynamic checks ran successfully"
