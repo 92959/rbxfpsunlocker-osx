@@ -1,10 +1,21 @@
 #!/bin/bash
 
-if [ -z "$1" ]
-  then
-    targetFps=10000
-  else
-    targetFps=$1
+x = ''
+
+targetFps=10000
+
+if [[ -z "$1" ]]; then
+  :
+elif [[ "$1" == "yes" ]]; then
+  useVulkan=yes
+elif [[ "$1" == "no" ]]; then
+  useVulkan=no
+elif [[ "$1" == "y" ]]; then
+  useVulkan=yes
+elif [[ "$1" == "n" ]]; then
+  useVulkan=no
+else
+  targetFps=$1
 fi
 
 robloxPath="/Applications/Roblox.app"
@@ -43,17 +54,21 @@ if [ ! -d "$clientSettingsPath" ]; then
   mkdir $clientSettingsPath
 fi
 
-if [[ -z "$2" ]]; then
+if [[ -z "$2" && -z ${useVulkan+x} ]]; then
     echo "Do you want to use the Vulkan renderer? This will remove the FPS cap completely, but might break Roblox if you use an external monitor. (yes/no): "
     read useVulkan
-elif [[ "$2" == "yes" ]]; then
+elif [[ "$2" == "yes" || useVulkan == "yes" ]] ; then
     useVulkan=yes
-elif [[ "$2" == "no" ]]; then
+elif [[ "$2" == "no" || useVulkan == "no" ]]; then
     useVulkan=no
-elif [[ "$2" == "y" ]]; then
+elif [[ "$2" == "y" || useVulkan == "y" ]]; then
     useVulkan=yes
-elif [[ "$2" == "n" ]]; then
+elif [[ "$2" == "n" || useVulkan == "n" ]]; then
     useVulkan=no
+elif [[ useVulkan =~ ^[0-9]+$ ]]; then
+    targetFps=$1
+    echo "Do you want to use the Vulkan renderer? This will remove the FPS cap completely, but might break Roblox if you use an external monitor. (yes/no): "
+    read useVulkan
 else
     echo "Do you want to use the Vulkan renderer? This will remove the FPS cap completely, but might break Roblox if you use an external monitor. (yes/no): "
     read useVulkan
