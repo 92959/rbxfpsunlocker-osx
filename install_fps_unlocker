@@ -1,6 +1,6 @@
 #!/bin/bash
 
-x = ''
+blank=''
 
 echo "WARNING: Running this script directly from upstream/the unstable branch can cause issues (possibly even breaking/bricking Roblox, command-line or your system)!"
 
@@ -56,8 +56,7 @@ if [ ! -d "$clientSettingsPath" ]; then
   mkdir $clientSettingsPath
 fi
 
-if [[ -z "$2" && -z ${useVulkan+x} ]]; then
-    echo "hi"
+if [[ -z "$2" && -z ${useVulkan+blank} ]]; then
     echo "Do you want to use the Vulkan renderer? This will remove the FPS cap completely, but might break Roblox if you use an external monitor. (yes/no): "
     read useVulkan
 elif [[ "$2" == "yes" || useVulkan == "yes" ]] ; then
@@ -69,12 +68,10 @@ elif [[ "$2" == "y" || useVulkan == "y" ]]; then
 elif [[ "$2" == "n" || useVulkan == "n" ]]; then
     useVulkan=no
 elif [[ useVulkan =~ ^[0-9]+$ ]]; then
-    echo "afternoon"
     targetFps=$1
     echo "Do you want to use the Vulkan renderer? This will remove the FPS cap completely, but might break Roblox if you use an external monitor. (yes/no): "
     read useVulkan
 else
-    echo "bye"
     echo "Do you want to use the Vulkan renderer? This will remove the FPS cap completely, but might break Roblox if you use an external monitor. (yes/no): "
     read useVulkan
 fi
