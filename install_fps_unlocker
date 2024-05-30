@@ -2,8 +2,6 @@
 
 x = ''
 
-echo "WARNING: Running this script directly from upstream/the unstable branch can cause issues (possibly even breaking/bricking Roblox, command-line or your system)!"
-
 targetFps=10000
 
 if [[ -z "$1" ]]; then
