@@ -1,6 +1,6 @@
 #!/bin/bash
 
-x=''
+blank=''
 
 targetFps=10000
 
