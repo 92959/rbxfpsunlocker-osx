@@ -58,13 +58,13 @@ if [[ -z "$2" && -z ${useVulkan+blank} ]]; then
     echo "hi"
     echo "Do you want to use the Vulkan renderer? This will remove the FPS cap completely, but might break Roblox if you use an external monitor. (yes/no): "
     read useVulkan
-elif [[ "$2" == "yes" || useVulkan == "yes" ]]; then
+elif [[ "$2" == "yes" ]]; then
     useVulkan=yes
-elif [[ "$2" == "no" || useVulkan == "no" ]]; then
+elif [[ "$2" == "no" ]]; then
     useVulkan=no
-elif [[ "$2" == "y" || useVulkan == "y" ]]; then
+elif [[ "$2" == "y" ]]; then
     useVulkan=yes
-elif [[ "$2" == "n" || useVulkan == "n" ]]; then
+elif [[ "$2" == "n" ]]; then
     useVulkan=no
 elif [[ useVulkan =~ ^[0-9]+$ ]]; then
     echo "afternoon"
