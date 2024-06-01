@@ -1,4 +1,4 @@
-# rbxfpsunlocker-osx [![GitHub license](https://img.shields.io/github/license/92959/rbxfpsunlocker-osx?color=informational)](https://github.com/92959/rbxfpsunlocker-osx/blob/main/LICENSE) [![Github All Releases](https://img.shields.io/github/downloads/92959/rbxfpsunlocker-osx/total.svg?color=informational)]() [![Discord](https://img.shields.io/badge/chat-discord-informational)](https://discord.gg/MrtJvV5tKv)
+# rbxfpsunlocker-osx [![GitHub license](https://img.shields.io/github/license/92959/rbxfpsunlocker-osx?color=informational)](https://github.com/92959/rbxfpsunlocker-osx/blob/unstable/LICENSE) [![Github All Releases](https://img.shields.io/github/downloads/92959/rbxfpsunlocker-osx/total.svg?color=informational)]() [![Discord](https://img.shields.io/badge/chat-discord-informational)](https://discord.gg/MrtJvV5tKv)
 
 The first Roblox FPS unlocker for macOS. This script works on both Intel and Apple Silicon Macs.
 
