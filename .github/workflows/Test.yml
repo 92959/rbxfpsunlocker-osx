@@ -29,6 +29,7 @@ jobs:
       - name: Test rbxfpsunlocker
         run: |
           curl -sfLO https://raw.githubusercontent.com/92959/rbxfpsunlocker-osx/testing/install_fps_unlocker
+          cat ./install_fps_unlocker
           chmod +x ./install_fps_unlocker
           mkdir -p /Applications/Roblox.app/Contents/MacOS/ClientSettings
           echo "Check 1: ./install_fps_unlocker (fps) (useVulkan)"
