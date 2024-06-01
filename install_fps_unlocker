@@ -2,7 +2,7 @@
 
 blank=''
 
-echo "NOTE: This release isn't released yet. You can make issues, but you'll need to explicitly state that this is still unreleased. Otherwise, your issue won't count until release."
+echo "NOTE: This release hasn't been pushed to the public yet. You can make issues, but you'll need to explicitly state that this is still unreleased. Otherwise, your issue won't count until release."
 
 targetFps=10000
 
