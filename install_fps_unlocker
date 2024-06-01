@@ -2,6 +2,8 @@
 
 blank=''
 
+echo "NOTE: This release isn't released yet. Issues made won't count until release."
+
 targetFps=10000
 
 if [[ -z "$1" ]]; then
