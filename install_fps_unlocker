@@ -2,8 +2,6 @@
 
 blank=''
 
-echo "WARNING: Running this script directly from upstream/the unstable branch can cause issues (possibly even breaking/bricking Roblox, command-line or your system)!"
-
 targetFps=10000
 
 if [[ -z "$1" ]]; then
@@ -24,6 +22,9 @@ robloxPath="/Applications/Roblox.app"
 
 if [ -z "$robloxPath" ]; then
   $robloxPath="~/Applications/Roblox.app"
+  if [ ! -d "$robloxPath" ]; then
+    $robloxPath="$HOME/Applications/Roblox.app"
+  fi
   if [ -z "$robloxPath" ]; then
     echo "WARNING: Couldn't find Roblox.app using default paths. Are you sure you want to use 'find' as a last resort? (yes/no)"
     read useFindMethod
@@ -31,7 +32,7 @@ if [ -z "$robloxPath" ]; then
       yes)
         $robloxPath=$(find /Applications -name Roblox.app -print -quit 2>/dev/null)
         if [ -z "$robloxPath" ]; then
-          $robloxPath=$(find ~/Applications -name Roblox.app -print -quit 2>/dev/null)
+          $robloxPath=$(find $HOME/Applications -name Roblox.app -print -quit 2>/dev/null)
           if [ -z "$robloxPath" ]; then
             echo "ERROR: Roblox installation folder couldn't be found."
             exit 1
@@ -59,18 +60,26 @@ fi
 if [[ -z "$2" && -z ${useVulkan+blank} ]]; then
     echo "Do you want to use the Vulkan renderer? This will remove the FPS cap completely, but might break Roblox if you use an external monitor. (yes/no): "
     read useVulkan
-elif [[ "$2" == "yes" || useVulkan == "yes" ]] ; then
+elif [[ "$2" == "yes" ]]; then
     useVulkan=yes
-elif [[ "$2" == "no" || useVulkan == "no" ]]; then
+elif [[ "$2" == "no" ]]; then
     useVulkan=no
-elif [[ "$2" == "y" || useVulkan == "y" ]]; then
+elif [[ "$2" == "y" ]]; then
     useVulkan=yes
-elif [[ "$2" == "n" || useVulkan == "n" ]]; then
+elif [[ "$2" == "n" ]]; then
     useVulkan=no
-elif [[ useVulkan =~ ^[0-9]+$ ]]; then
-    targetFps=$1
+elif [[ "$2" =~ ^[0-9]+$ ]]; then
+    targetFps=$2
+    if [[ $useVulkan == yes || $useVulkan == no ]]; then
+        echo "Do you want to use the Vulkan renderer? This will remove the FPS cap completely, but might break Roblox if you use an external monitor. (yes/no): "
+        echo $useVulkan
+    else
+        echo "Do you want to use the Vulkan renderer? This will remove the FPS cap completely, but might break Roblox if you use an external monitor. (yes/no): "
+        read useVulkan
+    fi
+elif [[ $useVulkan == yes || $useVulkan == no ]]; then
     echo "Do you want to use the Vulkan renderer? This will remove the FPS cap completely, but might break Roblox if you use an external monitor. (yes/no): "
-    read useVulkan
+    echo $useVulkan
 else
     echo "Do you want to use the Vulkan renderer? This will remove the FPS cap completely, but might break Roblox if you use an external monitor. (yes/no): "
     read useVulkan
