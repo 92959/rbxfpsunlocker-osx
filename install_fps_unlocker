@@ -66,11 +66,14 @@ elif [[ "$2" == "y" ]]; then
     useVulkan=yes
 elif [[ "$2" == "n" ]]; then
     useVulkan=no
-elif [[ useVulkan =~ ^[0-9]+$ ]]; then
+elif [[ $useVulkan =~ ^[0-9]+$ ]]; then
     echo "afternoon"
     targetFps=$1
     echo "Do you want to use the Vulkan renderer? This will remove the FPS cap completely, but might break Roblox if you use an external monitor. (yes/no): "
     read useVulkan
+elif [[ $useVulkan == yes || $useVulkan == no ]]; then
+    echo "Do you want to use the Vulkan renderer? This will remove the FPS cap completely, but might break Roblox if you use an external monitor. (yes/no): "
+    echo $useVulkan
 else
     echo "bye"
     echo "Do you want to use the Vulkan renderer? This will remove the FPS cap completely, but might break Roblox if you use an external monitor. (yes/no): "
